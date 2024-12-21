@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>git1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p>gitカリキュラム1</p>
+<h1 id="git%E3%81%A8github%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%9F%A5%E3%82%8D%E3%81%86">GitとGithubについて知ろう</h1>
+<h2 id="git%E3%81%A8%E3%81%AF">Gitとは</h2>
+<p>Gitとはソースコードなどを管理・共有するために使うバージョン管理システムの事です。
+Gitを使うとファイルのバージョンを管理することができ、仮にほかの誰かにプログラムを上書きされても、簡単にもとに戻すことができます。
+開発の現場で幅広く利用されています。</p>
+<h2 id="github%E3%81%A8%E3%81%AF">Githubとは</h2>
+<p>Githubとは開発者にとって欠かせない存在といっても過言ではありません。
+世界中の人々がプログラムコードやデザインデータを保存・公開できるソースコード管理サービスの事です。
+エンジニア同士がGithub上でソースコードを共有することによって履歴を残しながら更新をしたり、自分以外の人間が修正を加えたりできます。</p>
+<hr>
+<h2 id="git%E3%81%AE%E5%B0%8E%E5%85%A5">Gitの導入</h2>
+<p>今回カリキュラムで必要なGitを使用するためにGitをインストールする必要が有ります。</p>
+<p>Windowsの場合とMacの場合でインストール方法が異なるため、WindowsとMacでの方法を下記に書いています。</p>
+<p>ここからコードを入力する箇所がありますが、コピー&amp;ペーストをしながら進めてください。</p>
+<h3 id="windows%E3%81%AE%E5%A0%B4%E5%90%88"><strong>Windowsの場合</strong></h3>
+<h4 id="%E6%89%8B%E9%A0%861">手順1</h4>
+<p>以下のGitのインストーラーをローカルにインストールしてください。</p>
+<p><a href="https://gitforwindows.org/" target="_blank">Git for Windows</a></p>
+<p>以下のような画面に遷移すると思います。</p>
+<img src="./images/git1/git1-1.png" width="50%">
+<p>右下の青いボタンからDownloadをクリックしてください。</p>
+<p>すると下記のように「Git-x.xx.x-64-bit.exe」がダウンロードされます。</p>
+<img src="./images/git1/git1-2.png" width="50%">
+<h4 id="%E6%89%8B%E9%A0%862">手順2</h4>
+<p>手順1にてダウンロードすることができた「Git-x.xx.x-64-bit.exe」をダブルクリックすることによって実行してください。</p>
+<p>「Only show new options」と書いてあるところのチェックボックスを外すことによってオプションを細かく設定したりすることも可能ですが、今回は「install」と書いてあるボタンを押してください。</p>
+<img src="./images/git1/git1-3.png" width="50%">
+<p>下記のように表示されたらインストールが完了しています。</p>
+<p>Finishを押して表示されているウインドウを消してください。</p>
+<img src="./images/git1/git1-4.png" width="50%">
+<p>Windowsボタンを押して「git」と検索したときに、「Git Bash」が表示されていたらインストール成功です。</p>
+<img src="./images/git1/git1-5.png" width="50%">
+<h3 id="mac%E3%81%AE%E5%A0%B4%E5%90%88"><strong>Macの場合</strong></h3>
+<h4 id="%E6%89%8B%E9%A0%861">手順1</h4>
+<p>Gitをローカル環境で開発するためにターミナルの用意が必要です。</p>
+<p>ターミナルは標準でMacにインストールされています。</p>
+<p>コマンドキーとスペースバーを同時に押すと、Spotlightというウインドウが開けます。</p>
+<p>このウインドウに「たーみなる」と入力して、ターミナルというアプリケーションを開いてください。</p>
+<h4 id="%E6%89%8B%E9%A0%862">手順2</h4>
+<p>ターミナルが開けたら、以下のコマンドを実行してください。</p>
+<pre class="hljs"><code><div>git --version
+</div></code></pre>
+<p>それによって下記のような表示をされていればすぐにGitを使うことができるため、そのまま次に進んでください。</p>
+<pre class="hljs"><code><div>git version x.xx.x (Apple Git-xxx)
+</div></code></pre>
+<p>Gitのバージョンが表示されずに、以下のようなウインドウが表示された場合は、青いボタンの「インストール」を押してGitをインストールしましょう。</p>
+<img src="./images/git1/git1-6.png" width="50%">
+<h2 id="google%E3%81%AE%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E4%BD%9C%E6%88%90">Googleのアカウント作成</h2>
+<p>次にGithubというプラットフォームの登録をする際にGoogleのアカウントが必要になるため、Googleのアカウント作成をしましょう。</p>
+<p>既に自分のアカウントを作っている人はそのGoogleのメールアドレスを使いましょう。</p>
+<p>下記のGoogleアカウント作成の動画を見ながら、Googleのアカウントの作成をしましょう。</p>
+<iframe width="900" height="600" src="https://www.youtube.com/embed/fAEC-vEw4e4?si=Qu4mfmDd6U2730D0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h2 id="github%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E4%BD%9C%E6%88%90">Githubアカウント作成</h2>
+<p>次に先ほど作成したGoogleアカウントを使用してGithubアカウントの作成を行います。</p>
+<p>下記のGithubの動画を見ながら、Githubアカウントの作成をしましょう。</p>
+<iframe width="900" height="600" src="https://www.youtube.com/embed/mHsA3QPO0YM?si=J3AzuCAg9PLrbr2D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h2 id="git%E3%81%AE%E8%A8%AD%E5%AE%9A">Gitの設定</h2>
+<h3 id="ssh%E6%8E%A5%E7%B6%9A%E3%82%92%E3%81%99%E3%82%8B">ssh接続をする</h3>
+<p>まず、Githubのアカウントと現在操作しているPCを接続するためにssh接続をします。</p>
+<p>このssh接続を行うことによってGithubに「この操作しているパソコンは私のだよ！」と安全に伝えることができます。</p>
+<p>Windowsを使っている人はPowershell,Macを使っている人はターミナルを開きましょう。</p>
+<p>開けたら、以下のコマンドを実行します。</p>
+<pre class="hljs"><code><div>cd ~/.ssh
+</div></code></pre>
+<p>実行できない場合は、下記のような結果になると思います。</p>
+<pre class="hljs"><code><div>cd: The directory '.ssh' does not exist
+</div></code></pre>
+<p>これは.sshという名前のフォルダが無いから移動することができないと言われています。
+できない場合は、以下のコマンドを1行ずつ実行しましょう。</p>
+<pre class="hljs"><code><div>cd
+mkdir .ssh
+cd .ssh
+</div></code></pre>
+<p>実行することができたら、以下のコマンドを実行します。</p>
+<pre class="hljs"><code><div>ssh-keygen -t rsa -C Githubメールアドレス -f 自分の名前
+</div></code></pre>
+<p>以下のように、ファイルの保存場所を指定するように求められたり、パスワードを指定するように求められます。今回は、何も入力することなく「Enter」を押し続けてください。</p>
+<img src="./images/git1/git1-12.png" width="50%">
+<p>これによってssh接続に必要なファイルが生成され、以下のように表示されます。</p>
+<p>ssh接続については難しい内容であるためここでは詳しく説明しませんが、気になる人は「ssh接続とは」と調べたりしてみましょう。</p>
+<img src="./images/git1/git1-7.png" width="50%">
+<p>他に追加しないといけない内容があるため、VSCodeを使って編集を行います。</p>
+<p>以下のコマンドを実行しましょう。</p>
+<p>そうするとVSCodeを開くことができます。</p>
+<pre class="hljs"><code><div>code .
+</div></code></pre>
+<p><strong>command not found: codeと表示された場合</strong></p>
+<p>VSCodeを開き、shift + command + Pを押しましょう。</p>
+<p>「&gt; shell command」と入力すると&quot;シェルコマンド：PATH内に'code'コマンドをインストールします&quot;と&quot;シェルコマンド：PATH内に'code'コマンドをアンインストールします&quot;が表示されます。</p>
+<p>&quot;シェルコマンド：PATH内に'code'コマンドをインストールします&quot;を押しましょう。</p>
+<p>正常にインストールされたと表示されたら&quot;code .&quot;にて動くようになっているはずです。</p>
+<hr>
+</details>
+<p>左のファイルの中に先ほどのコマンドにて指定した自分の名前のファイルと自分の名前の後に「.pub」とついているファイルの2つが生成されていれば大丈夫です。</p>
+<p>自分の名前の後に「.pub」と書いてあるファイルを開いて、その中に書いてあるものをすべてコピーしておいてください。</p>
+<img src="./images/git1/git1-8.png" width="50%">
+<p>次にconfigという名前のファイルを作成しましょう。</p>
+<p>もう既にconfigという名前のファイルが作成されている場合は新たに作成する必要はありません。</p>
+<p>そして下記のようにconfigファイルの中に記述してください。</p>
+<p>共用パソコンの場合はほかの生徒がconfigファイルに記述している可能性が有ります。</p>
+<p>その場合は既にあるコードは削除せず改行をして記述するようにしてください。</p>
+<pre class="hljs"><code><div>Host github.com.自分の名前
+    HostName github.com
+    User git
+    Port 22
+    IdentityFile ~/.ssh/自分の名前
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+</div></code></pre>
+<p>名前がStaproTaroの場合このようになります。
+2行目と6行目が特に異なるはずです。</p>
+<img src="./images/git1/git1-9.png" width="50%">
+<p>次はGithubを開きましょう。
+作成したアカウントでログインすることができている状態にしてください。</p>
+<p>右上のアイコンマークを押すと、下記のようなサイドバーが表示されます。</p>
+<p>この中からSettingsを押してください。</p>
+<img src="./images/git1/git1-10.png" height="500px">
+<p>Settingsのページに飛ぶと「SSH and GPG keys」という項目があると思います。
+そこをクリックしてください。</p>
+<p>緑色のボタンが右に二つあると思いますが、その中から「New SSH key」と書いてあるボタンを押しましょう。</p>
+<p>そうすると下記のようなページに遷移するはずです。</p>
+<p>Titleは自分の使っているPCがどんなPCかわかりやすいように書いておきましょう。</p>
+<p>このTitleは何にしてもあまり問題はありませんが、使っているPCがどれかわかっていることが重要です。</p>
+<img src="./images/git1/git1-11.png" width="50%">
+<p>Add SSH keyと書かれているところを押しましょう。</p>
+<p>そしたらもう一度ターミナルに戻ります。
+下記のコマンドを実行してください。</p>
+<pre class="hljs"><code><div>ssh -T git@github.com.自分の名前
+</div></code></pre>
+<p>実行したときに下記のように表示されていれば、Githubと使っているPCとの接続に成功していますが、下記の表示と違っていればこれまでした操作が間違えている可能性が有ります。</p>
+<pre class="hljs"><code><div>Hi {yourname}! You've successfully authenticated, but GitHub does not provide shell access.
+</div></code></pre>
+<p>「Are you sure you want to continue connecting (yes/no/[fingerprint])?」と表示された場合は、&quot;yes&quot;と入力し、Enterを押しましょう。</p>
+<hr>
+<p>例えば下記のようなエラーが表示されたときは、configファイルの1行目に問題が有ると表示されています。</p>
+<img src="./images/git1/git1-13.png" width="80%" height="200px">
+<p>このようにエラー文を見ながらどこに原因があるのか探してみましょう。</p>
+<p>これでカリキュラム1は終了です。
+Gitカリキュラム2に進んでください。</p>
+
+</body>
+</html>
