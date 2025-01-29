@@ -26,7 +26,7 @@ Githubでリポジトリを作成しよう
 
 <a href="https://github.com" target="_blank">Github</a>にアクセスし、ログインをしましょう。
 
-ページの右上隅で+を選択し、「新しいリポジトリ」をクリックします。
+ページの右上隅で+を選択し、「New repository」をクリックします。
 
 <img src="./images/git2/image-8.png" height="500px">
 
@@ -59,20 +59,6 @@ VSCodeではCtrl+jを押すとターミナルを表示させることができ�
 
 Gitカリキュラム1で使用していたターミナルと同じものになりますが、VSCodeにて動物紹介サイトのフォルダを開いた状態でターミナルを開くと動物紹介サイトのフォルダの中に入っているものに対してコマンドを実行することができます。
 
-下記のコマンドを1行ずつ実行しましょう。
-
-このコマンドは、プロジェクトで作業をする際に作業している人の情報をGitに教えるために必要です。
-
-このコマンドを実行していないとこれから学習するコマンドを実行した際に誰が作業しているか記録できないためエラーが出てしまいます。
-
-Githubのアカウント名とGithubのメールアドレスと書かれている部分を自分の情報に変更しましょう。
-
-
-```
-git config --local user.name Githubのアカウント名
-git config --local user.email Githubのメールアドレス
-```
-
 git init
 --------
 
@@ -90,7 +76,19 @@ git init
 Initialized empty Git repository in 〇〇
 ```
 
+次に下記のコマンドを1行ずつ実行しましょう。
 
+このコマンドは、プロジェクトで作業をする際に作業している人の情報をGitに教えるために必要です。
+
+このコマンドを実行していないとこれから学習するコマンドを実行した際に誰が作業しているか記録できないためエラーが出てしまいます。
+
+Githubのアカウント名とGithubのメールアドレスと書かれている部分を自分の情報に変更しましょう。
+
+
+```
+git config --local user.name Githubのアカウント名
+git config --local user.email Githubのメールアドレス
+```
 
 これによってリポジトリの初期化をすることができました。
 
@@ -98,6 +96,10 @@ Initialized empty Git repository in 〇〇
 
 <img src="./images/git2/image-6.png" width="50%">
 <img src="./images/git2/image-7.png" width="50%">
+
+
+
+
 
 git add
 -------
@@ -143,27 +145,29 @@ git push
 --------
 
 最後にGithubに追加した変更をアップロードします。
+下記コマンドを1行ずつ実行してみましょう。
 
-リポジトリを作成したときに表示されたページから赤の矢印の部分を押して、コピーしてください。
+1つ目のコマンドでは「git@github.com.自分の名前」と書いている箇所の「自分の名前」の所に、
+git1カリキュラムでconfigというファイルに書いた名前を書きましょう。
 
-<img src="./images/git2/image-19.png" width="50%">
+git@github.comでコマンドを実行してしまうとエラーが出てしまうはずです。
 
-そしてコピーしたコードをターミナルで実行してください。
-
-<img src="./images/git2/image-20.png" width="50%">
-
-実行を終わった後にGithubのページが以下のように表示されていればpushが成功しています。
+エラーが出てしまった場合は一番下のよくあるエラーのところから解決しましょう。
 
 
 ```
-git remote add origin git@github.com:xxxxxxxx/Animal-introduction-site.git
+git remote add origin git@github.com.自分の名前:xxxxxxxx/Animal-introduction-site.git
+```
+```
 git branch -M main
+```
+```
 git push -u origin main
 ```
 
 「git push -u origin main」でGithubへのアップロードを行っています。
 
-<img src="./images/git2/image-21.png" width="50%" height="200px">
+<img src="./images/git2/image-21.png" width="50%">
 
 
 まとめ

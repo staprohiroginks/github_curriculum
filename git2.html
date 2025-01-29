@@ -381,7 +381,7 @@ code {
 <h2 id="github%E3%81%A7%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%82%88%E3%81%86">Githubでリポジトリを作成しよう</h2>
 <p>コマンドの演習をする前に動物の紹介サイトを共有できるようにGithub上で準備をします。</p>
 <p><a href="https://github.com" target="_blank">Github</a>にアクセスし、ログインをしましょう。</p>
-<p>ページの右上隅で+を選択し、「新しいリポジトリ」をクリックします。</p>
+<p>ページの右上隅で+を選択し、「New repository」をクリックします。</p>
 <img src="./images/git2/image-8.png" height="500px">
 <p>リポジトリの初期設定を行える画面に遷移します。</p>
 <p>今回は、Repository nameのところに「Animal introduction site」、Descriptionのところに「練習問題で作成した動物の紹介サイトです」と記述しましょう。</p>
@@ -397,7 +397,6 @@ code {
 <p>コマンドを実行するためにターミナルを表示させてみます。</p>
 <p>VSCodeではCtrl+jを押すとターミナルを表示させることができます。</p>
 <p>Gitカリキュラム1で使用していたターミナルと同じものになりますが、VSCodeにて動物紹介サイトのフォルダを開いた状態でターミナルを開くと動物紹介サイトのフォルダの中に入っているものに対してコマンドを実行することができます。</p>
-
 <h2 id="git-init">git init</h2>
 <p>このコマンドを使うことによって、プロジェクトフォルダをGitの管理対象に設定します。これを「リポジトリの初期化」とも言います。</p>
 <p>git initと入力して実行してみましょう。</p>
@@ -406,19 +405,17 @@ code {
 <p>下記のように表示されるはずです。</p>
 <pre class="hljs"><code><div>Initialized empty Git repository in 〇〇
 </div></code></pre>
-<p>これによってリポジトリの初期化をすることができました。</p>
-<p>具体的な実行結果は下記の通りになります。</p>
-<img src="./images/git2/image-6.png" width="50%">
-<img src="./images/git2/image-7.png" width="50%">
-
-<p>下記のコマンドを1行ずつ実行しましょう。</p>
+<p>次に下記のコマンドを1行ずつ実行しましょう。</p>
 <p>このコマンドは、プロジェクトで作業をする際に作業している人の情報をGitに教えるために必要です。</p>
 <p>このコマンドを実行していないとこれから学習するコマンドを実行した際に誰が作業しているか記録できないためエラーが出てしまいます。</p>
 <p>Githubのアカウント名とGithubのメールアドレスと書かれている部分を自分の情報に変更しましょう。</p>
 <pre class="hljs"><code><div>git config --local user.name Githubのアカウント名
 git config --local user.email Githubのメールアドレス
 </div></code></pre>
-	
+<p>これによってリポジトリの初期化をすることができました。</p>
+<p>具体的な実行結果は下記の通りになります。</p>
+<img src="./images/git2/image-6.png" width="50%">
+<img src="./images/git2/image-7.png" width="50%">
 <h2 id="git-add">git add</h2>
 <p>git add は、作業中のファイルやフォルダを「Gitに保存する準備をする」ためのコマンドです。</p>
 <p>言い換えると、「次に保存したい変更を選ぶ」作業です。</p>
@@ -439,18 +436,20 @@ git config --local user.email Githubのメールアドレス
 </div></code></pre>
 <p>このコマンドにより、ステージに追加した変更がコミットされ、Git上に記録されます。この記録によって後から変更内容を見返したり、必要に応じて過去のバージョンに戻すことができます。</p>
 <h2 id="git-push">git push</h2>
-<p>最後にGithubに追加した変更をアップロードします。</p>
-<p>リポジトリを作成したときに表示されたページから赤の矢印の部分を押して、コピーしてください。</p>
-<img src="./images/git2/image-19.png" width="50%">
-<p>そしてコピーしたコードをターミナルで実行してください。</p>
-<img src="./images/git2/image-20.png" width="50%">
-<p>実行を終わった後にGithubのページが以下のように表示されていればpushが成功しています。</p>
-<pre class="hljs"><code><div>git remote add origin git@github.com:xxxxxxxx/Animal-introduction-site.git
-git branch -M main
-git push -u origin main
+<p>最後にGithubに追加した変更をアップロードします。
+下記コマンドを1行ずつ実行してみましょう。</p>
+<p>1つ目のコマンドでは「git@github.com.自分の名前」と書いている箇所の「自分の名前」の所に、
+git1カリキュラムでconfigというファイルに書いた名前を書きましょう。</p>
+<p>git@github.comでコマンドを実行してしまうとエラーが出てしまうはずです。</p>
+<p>エラーが出てしまった場合は一番下のよくあるエラーのところから解決しましょう。</p>
+<pre class="hljs"><code><div>git remote add origin git@github.com.自分の名前:xxxxxxxx/Animal-introduction-site.git
+</div></code></pre>
+<pre class="hljs"><code><div>git branch -M main
+</div></code></pre>
+<pre class="hljs"><code><div>git push -u origin main
 </div></code></pre>
 <p>「git push -u origin main」でGithubへのアップロードを行っています。</p>
-<img src="./images/git2/image-21.png" width="50%" height="200px">
+<img src="./images/git2/image-21.png" width="50%">
 <h2 id="%E3%81%BE%E3%81%A8%E3%82%81">まとめ</h2>
 <p>今回は練習問題で作成したものをGithubに共有しました。</p>
 <p>次からこのリポジトリに変更を加えてGithubを更新するときは、add,commit,pushの流れになります。</p>
